@@ -87,22 +87,24 @@ int LinkedList::remove(int i)
 void LinkedList::add(int i, int e)
 {
     ChainNode *p = firstNode;
-    ChainNode *q = new ChainNode(e);
     
-    if(q == NULL) cout << "Error : Memory full" << endl;
     if(i < 0) {
         cout << "Lower bound" << endl;
         i = 0;
-    }
-    if(i > 0) {
+    } else if(i > curSize) {
         cout << "Upper bound" << endl;
         i = curSize;
     }
     
+    cout << "before cursize : " <<  curSize << endl;
+    cout << "before cursize i : " << i << endl;
+    
     for(int j = 0; j < i; j++) p = p->next;
     
-    q->next = p->next;
-    p->next = q;
+    ChainNode *new_node = new ChainNode(e);
+
+    new_node->next = p->next;
+    p->next = new_node;
     curSize++;
 }
 
@@ -117,6 +119,34 @@ void LinkedList::clear()
     }
     firstNode->next = NULL;
     curSize = 0;
+}
+
+void LinkedList::oddNumber()
+{
+    ChainNode *p = firstNode->next;
+
+    cout << "Odd Number : ";
+    for(int i = 0; p != NULL && i < curSize; i++){
+        int temp = p->element;
+
+        if(temp % 2 == 1) cout << temp << ", ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+void LinkedList::evenNumber()
+{
+    ChainNode *p = firstNode->next;
+
+    cout << "Even Number : ";
+    for(int i = 0; p != NULL && i < curSize; i++){
+        int temp = p->element;
+
+        if(temp %  2 == 0) cout << temp;
+        p = p->next;
+    }
+    cout << endl;
 }
 
 void LinkedList::display()

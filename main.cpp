@@ -23,6 +23,8 @@ int main()
          << "6. add(int i, int e)" << endl
          << "7. display " << endl
          << "8. Clear" << endl
+         << "9. Odd Number" << endl
+         << "10. Even Number" << endl
          << "0. Exit Program " << endl
          << "Select Choice : ";
     cin >> choice;
@@ -57,6 +59,10 @@ int main()
         case 7: list.display();
             break;
         case 8: list.clear();
+            break;
+        case 9: list.oddNumber();
+            break;
+        case 10: list.evenNumber();
         }
     } while(choice != 0);
 

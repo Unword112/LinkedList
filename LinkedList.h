@@ -22,6 +22,9 @@ class LinkedList {
         int remove(int i);
         void add(int i, int e);
         void clear();
+
+        void oddNumber();
+        void evenNumber();
         
         void display();
 };
